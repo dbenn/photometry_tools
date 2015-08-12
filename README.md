@@ -10,6 +10,6 @@ _modify-fits-header.py_
  
 _zeros-and-offset.py_
 
-* Remove leading zeros from file names in the current directory, subtract an optional offset value from the sequence number in each, and copy the file to a temporary directory. 
+* This script removes leading zeros from file names in the current directory, subtracts an optional offset value from the sequence number in each, and copies the file to a temporary directory. 
 
-* This script was written for conversion of Canon (1100D) RAW file names to a form suitable for processing by IRIS batch commands such as "convertraw".
+* This simple script was written for conversion of Canon (1100D) RAW file names to a form suitable for processing by IRIS batch commands such as "convertraw".
