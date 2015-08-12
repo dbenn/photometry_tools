@@ -9,7 +9,7 @@
 # This script is dependent upon the astropy package. One easy way to get this 
 # is to install a scientific Python distribution such as Anaconda.
 #
-# Nov 2014, August 2015 
+# Nov 2014, Aug 2015 
 # dbenn@computer.org
 #
 # Notes:
