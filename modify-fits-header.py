@@ -14,12 +14,6 @@
 # Notes:
 # o VPhot FITS header requirements:
 #   http://184.73.185.143/app/restricted/uploading/HeaderRequirements.aspx
-#
-# TODO:
-# o Use RA/DEC or OBJECTRA/OBJECTDEC?
-# o Should JD correspond to midpoint or time-zone adjusted start?
-# o In all cases, check for previous FITS keyword and report in verbose mode.
-# o Setter methods have commonality; refactor!
 
 from astropy.time import Time, TimeDelta
 from astropy.io import fits as fitsio
