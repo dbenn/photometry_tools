@@ -74,6 +74,10 @@ def get_opts_and_args():
                       action="store_true", dest="use_midpoint_for_dateobs", 
                       default=False,
                       help="Use mid-point time (if set) for DATE-OBS")
+    parser.add_option("-j", "--adjust-time",
+                      action="store_true", dest="adjust_time", 
+                      default=False,
+                      help="Adjust time according to other time options")
     parser.add_option("-o", "--object",
                       action="store", dest="object", default=None,
                       help="Object name", metavar="OBJECT")
@@ -94,6 +98,9 @@ def set_times(fits, options, arg):
     """
     Adjust observation time (as DATE-OBS), mid-point, JD (for midpoint).
     """
+    if not options.adjust_time:
+        return
+
     full_dateobs = extract_full_dateobs(fits, arg)
 
     if full_dateobs is not None:
