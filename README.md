@@ -13,3 +13,9 @@ _zeros-and-offset.py_
 * This script removes leading zeros from file names in the current directory, subtracts an optional offset value from the sequence number in each, and copies the file to a temporary directory. 
 
 * This simple script was written for conversion of Canon (1100D) RAW file names to a form suitable for processing by IRIS batch commands such as "convertraw".
+
+_radec2deg.py_
+
+* This simple script converts RA and Dec in degrees to sexagisimal format.
+
+* RA and Dec are expected to be the first and second command-line arguments.
