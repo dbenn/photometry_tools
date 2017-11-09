@@ -37,13 +37,13 @@ def main():
                     set_calstat(fits, options, arg)
                     set_ra(fits, options, arg)
                     set_dec(fits, options, arg)
-                except KeyError, e:
-                    print "** Error: {0}".format(e)
+                except KeyError as e:
+                    print("** Error: {0}".format(e))
 
                 fits.flush()
                 fits.close()
-            except IOError, e:
-                print "** {0}".format(e)
+            except IOError as e:
+                print("** {0}".format(e))
 
     else:
         parser.print_help()
@@ -106,7 +106,7 @@ def set_times(fits, options, arg):
     if full_dateobs is not None:
         initial_t = Time(full_dateobs, scale='utc', format='isot')
         if options.verbose:
-            print "{0}: {1} [start]".format(arg, initial_t.isot)
+            print("{0}: {1} [start]".format(arg, initial_t.isot))
         
         tz_offset = float(options.tz_offset)
         tz_delta_t = TimeDelta(tz_offset*60*60, format='sec')
@@ -120,22 +120,22 @@ def set_times(fits, options, arg):
         midpoint_t = adjusted_t + midpoint_delta_t
 
         if options.use_midpoint_for_dateobs:
-            print "{0}: using midpoint for DATE-OBS".format(arg)
+            print("{0}: using midpoint for DATE-OBS".format(arg))
             new_date_obs = midpoint_t.isot
         else:
             new_date_obs = adjusted_t.isot
 
         fits[0].header['DATE-OBS']  = new_date_obs
         if options.verbose:
-            print "{0}: {1} [adjusted]".format(arg, new_date_obs)
+            print("{0}: {1} [adjusted]".format(arg, new_date_obs))
 
         fits[0].header['MIDPOINT'] = midpoint_t.isot
         if options.verbose:
-            print "{0}: {1} [midpoint]".format(arg, midpoint_t.isot)
+            print("{0}: {1} [midpoint]".format(arg, midpoint_t.isot))
 
         fits[0].header['JD'] = midpoint_t.jd
         if options.verbose:
-            print "{0}: {1} [JD]".format(arg, midpoint_t.jd)
+            print("{0}: {1} [JD]".format(arg, midpoint_t.jd))
 
 def optionally_set_iris_dateobs(fits, options, arg):
     """
@@ -159,10 +159,10 @@ def optionally_set_iris_dateobs(fits, options, arg):
             fits.flush()
 
             if options.verbose:
-                print "{0}: {1} [initial]".format(arg, dateobs)
-                print "{0}: {1} [adjusted]".format(arg, iris_dateobs)
+                print("{0}: {1} [initial]".format(arg, dateobs))
+                print("{0}: {1} [adjusted]".format(arg, iris_dateobs))
         else:
-            print "format of {0} not yyyy-mm-dd".format(options.iris_dateobs)
+            print("format of {0} not yyyy-mm-dd".format(options.iris_dateobs))
 
 def extract_full_dateobs(fits, arg):
     """
@@ -182,12 +182,12 @@ def extract_full_dateobs(fits, arg):
             
             del fits[0].header['UT-START']
         else:
-            print "{0}: DATE-OBS format not DD/MM/YYYY".format(arg)
+            print("{0}: DATE-OBS format not DD/MM/YYYY".format(arg))
 
     elif 'DATE-OBS' in fits[0].header:
         full_dateobs = fits[0].header['DATE-OBS']
     else:
-        print "{0} does not contain DATE-OBS keyword".format(arg)
+        print("{0} does not contain DATE-OBS keyword".format(arg))
 
     return full_dateobs
 
@@ -195,7 +195,7 @@ def set_object(fits, options, arg):
     if options.object is not None:
         fits[0].header['OBJECT'] = options.object
         if options.verbose:
-            print "{0}: Set object to {1}".format(arg, options.object) 
+            print("{0}: Set object to {1}".format(arg, options.object))
 
 def set_filter(fits, options, arg):
     if options.filter is not None:
@@ -205,23 +205,23 @@ def set_filter(fits, options, arg):
             old_filter = None
             fits[0].header['FILTER'] = options.filter
             if options.verbose:
-                print "{0}: Filter changed from {1} to {2}".format(arg, 
-                                                               old_filter, 
-                                                               options.filter)
+                print("{0}: Filter changed from {1} to {2}".format(arg, 
+                                                              old_filter, 
+                                                              options.filter))
 def set_airmass(fits, options, arg):
     if options.airmass is not None:
         fits[0].header['AIRMASS'] = options.airmass
         if options.verbose:
-            print "{0}: Set airmass to {1}".format(arg, options.airmass) 
+            print("{0}: Set airmass to {1}".format(arg, options.airmass))
 
 def set_calstat(fits, options, arg):
     if options.calstat is not None:
         if options.calstat not in ["B", "BD", "BF", "DF", "BDF"]:
-            print "{0}: CALSTAT must be one of B, BD, BF, DF, BDF".format(arg)
+            print("{0}: CALSTAT must be one of B, BD, BF, DF, BDF".format(arg))
         else:
             fits[0].header['CALSTAT'] = options.calstat
             if options.verbose:
-                print "{0}: Set calstat to {1}".format(arg, options.calstat) 
+                print("{0}: Set calstat to {1}".format(arg, options.calstat))
 
 def set_ra(fits, options, arg):
     if options.ra is not None:
@@ -229,9 +229,9 @@ def set_ra(fits, options, arg):
         if h_m_s is not None:
             fits[0].header['RA'] = h_m_s
             if options.verbose:
-                print "{0}: Set RA to {1}".format(arg, options.ra) 
+                print("{0}: Set RA to {1}".format(arg, options.ra))
         else:
-            print "{0}: Invalid RA '{1}'".format(arg, options.ra)
+            print("{0}: Invalid RA '{1}'".format(arg, options.ra))
 
 def set_dec(fits, options, arg):
     if options.dec is not None:
@@ -239,9 +239,9 @@ def set_dec(fits, options, arg):
         if d_m_s is not None:
             fits[0].header['DEC'] = d_m_s
             if options.verbose:
-                print "{0}: Set DEC to {1}".format(arg, options.dec) 
+                print("{0}: Set DEC to {1}".format(arg, options.dec))
         else:
-            print "{0}: Invalid DEC '{1}'".format(arg, options.dec)
+            print("{0}: Invalid DEC '{1}'".format(arg, options.dec))
 
 def get_hd_m_s_str(input, prefix="\-|\+"):
     pattern = re.compile("^\s*(({0})?\d+):(\d+):(\d+(\.\d+)?)\s*$".format(prefix))

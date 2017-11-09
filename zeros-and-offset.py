@@ -36,7 +36,7 @@ def main():
       new_file = "{0}{1}.{2}".format(prefix, new_seq_num, suffix)
       new_path = os.path.join(dest_dir, new_file)
       shutil.copyfile(file, new_path)
-      print "{0} => {1}".format(file, new_path)
+      print("{0} => {1}".format(file, new_path))
 
 if __name__ == "__main__":
     main()
