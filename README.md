@@ -1,5 +1,10 @@
 # Photometry tools
 
+_Automated Local Coordinate Aperture Photometry with PythonPhot.ipynb_
+* This Jupyter notebook is intended to be used for local coordinate aperture 
+photometry for input to the AAVSO DSLR photomentry reduction data worksheet (see Supplementary material section of [https://www.aavso.org/dslr-observing-manual](https://www.aavso.org/dslr-observing-manual)).
+* Uses the PythonPhot library for photometry.
+
 _modify-fits-header.py_ 
 
 * This script modifies the FITS header of the supplied files in various ways, such as to correct time using a timezone offset, MIDPOINT, JD, RA, Dec, calibration status, filter, object name and so on.
