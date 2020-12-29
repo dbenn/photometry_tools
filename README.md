@@ -1,6 +1,7 @@
 # Photometry tools
 
-_Automated Local Coordinate Aperture Photometry with PythonPhot.ipynb_
+_LocalCoordAperturePhotometry.ipynb_
+
 * This Jupyter notebook is intended to be used for local coordinate aperture 
 photometry for input to the AAVSO DSLR photometry reduction data worksheet (see Supplementary material section of [https://www.aavso.org/dslr-observing-manual](https://www.aavso.org/dslr-observing-manual)).
 * Uses the PythonPhot library for photometry.
