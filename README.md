@@ -6,6 +6,12 @@ _LocalCoordAperturePhotometry.ipynb_
 photometry for input to the AAVSO DSLR photometry reduction data worksheet (see Supplementary material section of [https://www.aavso.org/dslr-observing-manual](https://www.aavso.org/dslr-observing-manual)).
 * Uses the PythonPhot library for photometry.
 
+_SkyCoordAperturePhotometry.ipynb_
+
+* Sky coordinate DSLR aperture photometry yielding untransformed magnitudes.
+* Uses Python 3, astropy, matplotlib, PythonPhot, PhotUtils.
+* Requires a plate-solved image for RA/Dec determination.
+
 _modify-fits-header.py_ 
 
 * This script modifies the FITS header of the supplied files in various ways, such as to correct time using a timezone offset, MIDPOINT, JD, RA, Dec, calibration status, filter, object name and so on.
