@@ -34,7 +34,7 @@ def main():
       prefix = match.group(1)
       suffix = match.group(3)
       new_file = "{0}{1}.{2}".format(prefix, new_seq_num, suffix)
-      new_path = os.path.join(dest_dir, new_file)
+      new_path = os.path.join(dest_dir, new_file.lower())
       shutil.copyfile(file, new_path)
       print("{0} => {1}".format(file, new_path))
 
