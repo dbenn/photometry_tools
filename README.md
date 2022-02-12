@@ -8,7 +8,7 @@ photometry for input to the AAVSO DSLR photometry reduction data worksheet (see 
 
 _SkyCoordAperturePhotometry.ipynb_
 
-* Sky coordinate DSLR aperture photometry yielding untransformed magnitudes.
+* This Jupyter notebook is intended to be used for sky coordinate DSLR aperture photometry yielding untransformed magnitudes.
 * Uses Python 3, astropy, matplotlib, PythonPhot, PhotUtils.
 * Requires a plate-solved image for RA/Dec determination.
 
