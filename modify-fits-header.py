@@ -19,10 +19,14 @@
 from astropy.time import Time, TimeDelta
 from astropy.io import fits as fitsio
 from optparse import OptionParser
+import glob
 import re
 
 def main():
     (options, args) = get_opts_and_args()
+
+    if len(args) == 1:
+        args = glob.glob(args[0])
 
     if len(args) >= 1:
         for arg in args:
